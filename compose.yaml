@@ -1,0 +1,116 @@
+services:
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-voyago_dev}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-voyago_root_dev}
+    ports:
+      - "172.17.0.1:3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  wordpress:
+    image: wordpress:php8.3-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: host.docker.internal:3307
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-voyago_dev}
+      CODESPACE_NAME: ${CODESPACE_NAME:-}
+      GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN: ${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:-}
+      WORDPRESS_CONFIG_EXTRA: |
+        $$voyago_host = ! empty( $$_SERVER['HTTP_X_FORWARDED_HOST'] ) ? explode( ',', $$_SERVER['HTTP_X_FORWARDED_HOST'] )[0] : ( $$_SERVER['HTTP_HOST'] ?? '' );
+        $$voyago_scheme = ( ! empty( $$_SERVER['HTTP_X_FORWARDED_PROTO'] ) && strpos( $$_SERVER['HTTP_X_FORWARDED_PROTO'], 'https' ) !== false ) || ( ! empty( $$_SERVER['HTTPS'] ) && $$_SERVER['HTTPS'] !== 'off' ) ? 'https' : 'http';
+        if ( getenv( 'CODESPACE_NAME' ) && getenv( 'GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN' ) ) {
+          $$voyago_host = getenv( 'CODESPACE_NAME' ) . '-8080.' . getenv( 'GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN' );
+          $$voyago_scheme = 'https';
+        }
+        if ( $$voyago_host ) {
+          $$voyago_host = trim( $$voyago_host );
+          $$_SERVER['HTTP_HOST'] = $$voyago_host;
+          if ( $$voyago_scheme === 'https' ) {
+            $$_SERVER['HTTPS'] = 'on';
+          }
+          define( 'WP_HOME', $$voyago_scheme . '://' . $$voyago_host );
+          define( 'WP_SITEURL', $$voyago_scheme . '://' . $$voyago_host );
+        }
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./voyago:/var/www/html/wp-content/themes/voyago
+      - ./Black-and-White-Simple-Monoline-Camping-Camping-Logo-2048x1152.png:/var/www/html/wp-content/themes/voyago/assets/images/brand-logo.png:ro
+
+  setup:
+    image: wordpress:cli-php8.3
+    user: "0:0"
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    environment:
+      WORDPRESS_DB_HOST: host.docker.internal:3307
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-voyago_dev}
+      CODESPACE_NAME: ${CODESPACE_NAME:-}
+      GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN: ${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./voyago:/var/www/html/wp-content/themes/voyago
+      - ./Black-and-White-Simple-Monoline-Camping-Camping-Logo-2048x1152.png:/var/www/html/wp-content/themes/voyago/assets/images/brand-logo.png:ro
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -eu
+        cd /var/www/html
+        until [ -f wp-config.php ]; do sleep 2; done
+        mkdir -p wp-content/uploads
+        chown -R 33:33 wp-content/uploads
+        site_url=http://localhost:8080
+        if [ -n "$$CODESPACE_NAME" ] && [ -n "$$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN" ]; then
+          site_url="https://$${CODESPACE_NAME}-8080.$${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
+        fi
+        if ! wp core is-installed --allow-root >/dev/null 2>&1; then
+          admin_password="$$(od -An -N18 -tx1 /dev/urandom | tr -d ' \n')"
+          wp core install \
+            --url="$$site_url" \
+            --title='Voyago Travel' \
+            --admin_user=voyago \
+            --admin_password="$$admin_password" \
+            --admin_email=admin@example.test \
+            --skip-email \
+            --allow-root
+          printf '\nWordPress admin username: voyago\nWordPress admin password: %s\n' "$$admin_password"
+        fi
+        wp option update home "$$site_url" --allow-root
+        wp option update siteurl "$$site_url" --allow-root
+        permalink_structure="$$(wp option get permalink_structure --allow-root 2>/dev/null || true)"
+        if [ -z "$$permalink_structure" ]; then
+          wp rewrite structure '/%postname%/' --hard --allow-root
+        fi
+        wp theme activate voyago --allow-root
+        wp eval 'mrr_seed_theme_content();' --allow-root
+        wp rewrite flush --allow-root
+    restart: "no"
+
+volumes:
+  wordpress_data:
+  db_data:

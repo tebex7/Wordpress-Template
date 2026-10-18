@@ -14,7 +14,7 @@
                 <a class="mrr-brand mrr-brand--footer" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><span class="mrr-brand__image"><img class="mrr-brand__logo" src="<?php echo esc_url( $mrr_footer_logo ); ?>" alt="" width="2048" height="1152" loading="lazy"></span><span class="mrr-brand__name"><?php bloginfo( 'name' ); ?></span></a>
             <?php else : ?>
                 <a class="mrr-brand mrr-brand--footer" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    <span class="mrr-brand__wordmark"><span><?php bloginfo( 'name' ); ?></span><small><?php esc_html_e( 'Journeys through Morocco', 'voyago' ); ?></small></span>
+                    <span class="mrr-brand__name"><?php bloginfo( 'name' ); ?></span>
                 </a>
             <?php endif; ?>
             <p><?php echo esc_html( get_theme_mod( 'mrr_footer_intro', 'A road of many colors. A country that stays with you long after you return.' ) ); ?></p>

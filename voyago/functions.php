@@ -7,7 +7,7 @@
  */
 
 if ( ! defined( 'VOYAGO_VERSION' ) ) {
-    define( 'VOYAGO_VERSION', '2.0.4' );
+    define( 'VOYAGO_VERSION', '2.0.10' );
 }
 
 /**

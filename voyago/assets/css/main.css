@@ -32,11 +32,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Header and navigation */
 .mrr-header { position: sticky; z-index: 1000; top: 0; width: 100%; color: var(--mrr-ivory); background: var(--mrr-green-deep); transition: background .3s ease, box-shadow .3s ease; }
-.mrr-header--over-hero { position: absolute; top: 0; left: 0; background: transparent; }
+.mrr-header--over-hero { position: absolute; top: 0; left: 0; background: var(--mrr-green-deep); }
 .mrr-header--over-hero.is-scrolled { position: fixed; background: var(--mrr-green-deep); box-shadow: 0 8px 32px rgba(16, 52, 39, .16); }
 .mrr-header__inner { display: flex; width: min(100% - 72px, 1440px); height: 88px; align-items: center; justify-content: space-between; margin: auto; }
 .mrr-brand { display: inline-flex; min-width: 290px; align-items: center; gap: 11px; color: var(--mrr-white); }
-.mrr-brand__name { max-width: 155px; color: var(--mrr-gold); font-family: var(--mrr-serif); font-size: 17px; font-weight: 600; line-height: 1.15; }
+.mrr-brand__name { display: block; max-width: none; color: var(--mrr-gold); font-family: var(--mrr-serif); font-size: 25px; font-weight: 700; line-height: 1; white-space: nowrap; }
 .mrr-brand__wordmark { display: grid; gap: 0; }
 .mrr-brand__wordmark > span { color: var(--mrr-gold); font-family: var(--mrr-serif); font-size: 22px; line-height: 1.1; }
 .mrr-brand__wordmark small { color: rgba(255, 253, 248, .8); font-size: 10px; letter-spacing: 0; }
@@ -44,7 +44,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .mrr-brand__logo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(2.1); }
 .mrr-navigation { display: flex; align-items: center; gap: 34px; }
 .mrr-navigation__list { display: flex; align-items: center; gap: 30px; margin: 0; padding: 0; list-style: none; }
-.mrr-navigation__list a { position: relative; display: inline-flex; align-items: center; min-height: 44px; color: rgba(255, 253, 248, .9); font-size: 13px; font-weight: 500; transition: color .2s ease; }
+.mrr-navigation__list a { position: relative; display: inline-flex; align-items: center; min-height: 44px; color: rgba(255, 253, 248, .92); font-size: 13px; font-weight: 500; transition: color .2s ease; }
 .mrr-navigation__list a::after { position: absolute; right: 0; bottom: 7px; left: 0; height: 1px; background: var(--mrr-gold); content: ''; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
 .mrr-navigation__list a:hover, .mrr-navigation__list a:focus-visible { color: var(--mrr-gold); }
 .mrr-navigation__list a:hover::after, .mrr-navigation__list a:focus-visible::after { transform: scaleX(1); }
@@ -205,15 +205,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .mrr-footer__main { display: grid; grid-template-columns: 1.5fr .7fr .8fr; gap: 80px; padding-block: 70px 52px; }
 .mrr-footer__brand { max-width: 330px; }
 .mrr-brand--footer { min-width: 0; }
-.mrr-footer__brand > p { margin: 18px 0 0; color: rgba(255, 253, 248, .7); font-size: 13px; }
+.mrr-footer__brand > p { margin: 18px 0 0; color: rgba(255, 253, 248, .76); font-size: 13px; }
 .mrr-footer__column { display: grid; align-content: start; justify-items: start; gap: 10px; }
 .mrr-footer__column h2 { margin: 0 0 6px; color: var(--mrr-gold); font-size: 10px; font-weight: 700; text-transform: uppercase; }
-.mrr-footer__column a { max-width: 100%; color: rgba(255, 253, 248, .82); font-size: 12px; overflow-wrap: anywhere; transition: color .2s ease; }
+.mrr-footer__column a { max-width: 100%; color: rgba(255, 253, 248, .86); font-size: 12px; overflow-wrap: anywhere; transition: color .2s ease; }
 .mrr-footer__column a:hover, .mrr-footer__bottom a:hover { color: var(--mrr-gold); }
 .mrr-footer__bottom { display: flex; min-height: 70px; align-items: center; justify-content: space-between; gap: 22px; border-top: 1px solid rgba(255, 253, 248, .17); }
 .mrr-footer__bottom p { margin: 0; color: rgba(255, 253, 248, .64); font-size: 10px; }
 .mrr-footer__bottom nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; }
-.mrr-footer__bottom nav a { color: rgba(255, 253, 248, .75); font-size: 10px; }
+.mrr-footer__bottom nav a { color: rgba(255, 253, 248, .8); font-size: 10px; }
 .mrr-footer__top { color: var(--mrr-gold); font-size: 22px; }
 
 /* Shared tour and policy templates */
@@ -274,6 +274,7 @@ html.mrr-js [data-reveal].is-visible { opacity: 1; transform: none; }
 @keyframes mrr-hero-arrive { from { transform: scale(1.045); } to { transform: scale(1); } }
 @keyframes mrr-drift { from { transform: scale(1); } to { transform: scale(1.035); } }
 @keyframes mrr-copy-arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes mrr-brand-reveal { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 1050px) {
     .mrr-header__inner { width: min(100% - 48px, 1440px); }
@@ -291,7 +292,7 @@ html.mrr-js [data-reveal].is-visible { opacity: 1; transform: none; }
     .mrr-section { padding-block: 72px; }
     .mrr-header__inner { width: calc(100% - 36px); height: 72px; }
     .mrr-brand { min-width: 0; max-width: calc(100% - 60px); gap: 8px; }
-    .mrr-brand__name { max-width: 126px; font-size: 13px; }
+    .mrr-brand__name { max-width: none; font-size: 16px; line-height: 1; white-space: nowrap; }
     .mrr-brand__wordmark > span { font-size: 19px; }
     .mrr-brand__image { width: 80px; height: 45px; }
     .mrr-menu-toggle { position: relative; z-index: 2; display: flex; width: 46px; height: 46px; flex: 0 0 46px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 0; border: 1px solid rgba(255, 253, 248, .38); background: transparent; cursor: pointer; }

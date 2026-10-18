@@ -31,7 +31,7 @@
             </a>
         <?php else : ?>
             <a class="mrr-brand" href="<?php echo esc_url( $mrr_home ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-                <span class="mrr-brand__wordmark"><span><?php bloginfo( 'name' ); ?></span><small><?php esc_html_e( 'Journeys through Morocco', 'voyago' ); ?></small></span>
+                <span class="mrr-brand__name"><?php bloginfo( 'name' ); ?></span>
             </a>
         <?php endif; ?>
 
