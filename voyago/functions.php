@@ -7,7 +7,7 @@
  */
 
 if ( ! defined( 'VOYAGO_VERSION' ) ) {
-    define( 'VOYAGO_VERSION', '1.0.0' );
+    define( 'VOYAGO_VERSION', '2.0.4' );
 }
 
 /**
@@ -112,6 +112,11 @@ function voyago_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'voyago_scripts' );
 
+require_once get_template_directory() . '/inc/customizer.php';
+require_once get_template_directory() . '/inc/tour-content.php';
+require_once get_template_directory() . '/inc/demo-content.php';
+require_once get_template_directory() . '/inc/seo.php';
+
 /**
  * Register Tour custom post type.
  */
@@ -148,7 +153,7 @@ function voyago_register_tour_cpt() {
 
     $args = array(
         'label'               => esc_html__( 'Tour', 'voyago' ),
-        'description'         => esc_html__( 'Travel tours and packages', 'voyago' ),
+        'description'         => esc_html__( 'Editable Morocco travel itineraries.', 'voyago' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'page-attributes' ),
         'hierarchical'        => false,
@@ -160,8 +165,7 @@ function voyago_register_tour_cpt() {
         'show_in_admin_bar'   => true,
         'show_in_nav_menus'   => true,
         'can_export'          => true,
-        'has_archive'         => true,
-        'archive_slug'        => 'tours',
+        'has_archive'         => 'tours',
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
         'rewrite'             => array(
@@ -175,11 +179,6 @@ function voyago_register_tour_cpt() {
     register_post_type( 'tour', $args );
 }
 add_action( 'init', 'voyago_register_tour_cpt' );
-
-// Include customizer.
-if ( file_exists( get_template_directory() . '/inc/customizer.php' ) ) {
-    require_once get_template_directory() . '/inc/customizer.php';
-}
 
 // Include template tags.
 if ( file_exists( get_template_directory() . '/inc/template-tags.php' ) ) {

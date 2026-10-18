@@ -1,0 +1,551 @@
+# MASTER PROMPT — MYSTIC MOROCCO ROADS
+## Premium WordPress Travel Website Template
+
+### 1. Your role and objective
+
+Act as a senior WordPress theme developer, award-winning web designer, UX/UI specialist, creative director, and frontend animation expert.
+
+Transform my existing basic WordPress template into a visually exceptional, immersive, premium Moroccan tourism website for **Mystic Morocco Roads**.
+
+Reference website: https://moroccodreamsland.com/
+
+Study the reference website's tourism-oriented structure and the types of homepage sections, tour presentations, and customer experiences appropriate for a Moroccan travel agency. Use it as inspiration, but create an original design with a stronger visual identity, more sophisticated layouts, beautiful photography, and polished animations.
+
+My current template is too basic and lacks photographs, visual storytelling, and engaging interactions. Completely improve its visual presentation while preserving useful existing functionality.
+
+The final result must feel like a professionally art-directed travel brand, not a generic AI-generated tourism template.
+
+**Important: implement the actual WordPress-compatible design in my existing project. Do not simply describe the design or create a static HTML mockup.**
+
+---
+
+### 2. Strict project scope
+
+Build ONLY these deliverables:
+
+1. One complete homepage containing all marketing and promotional sections.
+2. One reusable global header.
+3. One reusable global footer.
+4. Fully responsive desktop, tablet, and mobile layouts.
+5. One reusable template for individual tour pages.
+6. One reusable template for policy pages, including Privacy Policy, Terms and Conditions, and Cancellation Policy.
+
+The homepage must contain all the required marketing sections.
+
+The tour template must support different tour content without requiring a separate design for every tour.
+
+The policy template must support different legal documents through the same layout.
+
+**Do not build a complete website.**
+
+Do not create separate destination-page templates, blog templates, gallery pages, About Us pages, contact-page templates, customer dashboards, payment systems, or a complete booking platform.
+
+Do not add unnecessary features outside this scope.
+
+Navigation items may link to homepage sections, existing configured destinations, or existing pages. Do not create extra page templates just to make navigation links work.
+
+---
+
+### 3. Inspect the existing WordPress project
+
+Before making changes, inspect the project and determine whether it uses:
+
+- A classic PHP WordPress theme.
+- Elementor.
+- Gutenberg and the WordPress block editor.
+- Another page builder.
+- A custom WordPress starter theme.
+
+Adapt the implementation to the existing environment.
+
+If Elementor is installed, prioritize reusable Elementor-compatible sections and templates.
+
+If the project uses a classic theme, implement the appropriate PHP templates, CSS, JavaScript, WordPress hooks, and theme configuration.
+
+If it uses Gutenberg, use compatible block patterns and theme styles.
+
+Preserve useful existing components, routes, settings, and functionality.
+
+Do not rebuild the WordPress installation or replace the entire project unnecessarily.
+
+All important homepage text, photographs, tour information, contact links, and policy content must remain editable through WordPress.
+
+---
+
+### 4. Brand identity: the yellow-and-green desert logo
+
+My existing Mystic Morocco Roads logo combines **yellow and green** and depicts a person and a camel in the desert.
+
+This logo must define the website's visual identity.
+
+Before choosing final colors, inspect the actual logo asset if it exists in the project. Identify its dominant yellow and green tones and coordinate the website palette with them.
+
+Preserve the original logo. Do not redraw it, replace it with a generated alternative, distort its proportions, or introduce a conflicting brand symbol.
+
+If the logo file is unavailable, create the design around the described yellow-and-green identity and make the logo configurable.
+
+#### Color palette
+
+Use these suggested colors as starting points, adjusting them to complement the actual logo:
+
+- Desert gold yellow: `#E4B82F`
+- Deep Moroccan green: `#174A35`
+- Sage green: `#789477`
+- Warm desert sand: `#E8D4B0`
+- Warm ivory: `#FBF8F0`
+- Earth brown: `#76543B`
+- Deep charcoal: `#252923`
+
+Use deep green as the visual anchor, golden yellow as the signature accent, and warm desert photography as the emotional thread.
+
+Apply yellow to important buttons, highlights, small decorative details, and selected interactive states.
+
+Use deep green for the header, footer, selected section backgrounds, and important text.
+
+Use warm ivory and sand backgrounds to create contrast, breathing room, and visual variety.
+
+Do not make every section yellow or green. Alternate light editorial sections, dark-green sections, and immersive photography.
+
+Maintain accessible contrast and ensure yellow text remains readable against its background.
+
+#### Typography
+
+Use an elegant serif typeface for major headings and a clean sans-serif typeface for body text.
+
+Create a refined visual hierarchy, comfortable reading widths, generous spacing, and consistent typography across the homepage, tour template, policy template, header, and footer.
+
+Avoid generic corporate aesthetics, excessive gradients, monotonous cards, and unnecessary decorative elements.
+
+---
+
+### 5. The central creative concept: tell a story
+
+The website must tell a continuous visual story rather than display a collection of disconnected sections.
+
+The logo's person and camel crossing the desert provide the creative foundation.
+
+The visitor's experience should feel like the beginning of a journey, discovering Morocco's landscapes and culture, exploring possible routes, hearing from real travelers, and eventually imagining their own adventure.
+
+Build the homepage around this narrative:
+
+**Chapter 1 — The Call of the Desert**
+
+A cinematic introduction that inspires curiosity and creates an emotional connection with Morocco.
+
+**Chapter 2 — A Land of Contrasts**
+
+Discover Morocco's mountains, medinas, valleys, architecture, coastal towns, and desert landscapes.
+
+**Chapter 3 — Choose Your Journey**
+
+Present carefully designed tour cards that invite visitors to explore possible experiences.
+
+**Chapter 4 — Follow the Road**
+
+Show destinations and travel routes as connected experiences through Morocco.
+
+**Chapter 5 — Stories from Real Travelers**
+
+Display genuine Tripadvisor reviews to help visitors understand other travelers' experiences.
+
+**Chapter 6 — Your Own Moroccan Story**
+
+End with an inviting, cinematic call to action that encourages visitors to start planning their journey.
+
+Carry this narrative through photography, typography, section transitions, route motifs, and subtle animations.
+
+Do not use excessive text to explain the story. Let the photographs, layouts, and progression of the page communicate the feeling of travel.
+
+---
+
+### 6. Global header
+
+Create a premium, reusable header shared across the homepage, tour pages, and policy pages.
+
+#### Desktop navigation
+
+Include:
+
+- Mystic Morocco Roads logo.
+- Home.
+- Tours.
+- Experiences.
+- About Us.
+- Contact.
+- A prominent “Plan Your Trip” button.
+
+Use configured destinations or homepage anchors for links where appropriate. Do not create extra templates.
+
+#### Header behavior
+
+- Transparent over the homepage hero.
+- Transitions into a solid deep-green or appropriate brand-colored background on scroll.
+- Smooth sticky-header behavior.
+- Elegant hover effects.
+- Subtle animated indicators.
+- Consistent spacing and typography.
+- Responsive logo sizing.
+
+#### Mobile header
+
+- Compact logo.
+- Animated hamburger menu.
+- Accessible navigation drawer or dropdown.
+- Clear trip-planning CTA.
+- Touch-friendly spacing.
+- Smooth open and close transitions.
+
+Ensure the header never overlaps important content, obscures the logo, or causes horizontal overflow.
+
+---
+
+### 7. Homepage section 1 — Cinematic hero
+
+Create a full-width, immersive hero featuring a beautiful Moroccan desert or landscape photograph.
+
+Preferred imagery includes:
+
+- A person traveling with a camel across golden Sahara dunes.
+- A camel caravan silhouetted against the sunset.
+- A dramatic desert horizon.
+- A winding road through the Atlas Mountains.
+- A Moroccan landscape bathed in warm golden light.
+
+The imagery should connect naturally with the person-and-camel symbol in my logo.
+
+#### Headline
+
+“Morocco Is Calling. Follow the Road Less Traveled.”
+
+#### Supporting text
+
+“From ancient medinas to golden Sahara dunes, discover Morocco through journeys filled with culture, landscapes, and unforgettable encounters.”
+
+#### Buttons
+
+- “Explore Our Journeys”
+- “Plan Your Trip”
+
+Include a subtle animated scroll indicator.
+
+#### Visual treatment
+
+- Large, elegant typography.
+- Beautiful, cinematic composition.
+- A subtle dark overlay for readable text.
+- Smooth headline and button entrance animations.
+- Gentle background zoom.
+- Optional subtle parallax.
+- Carefully designed desktop and mobile image crops.
+
+The hero must be visually striking immediately, with a clear emotional identity.
+
+Do not overcrowd it with excessive text, search fields, badges, or unnecessary widgets.
+
+---
+
+### 8. Homepage section 2 — Discover Morocco
+
+Create a sophisticated editorial section introducing Morocco's extraordinary diversity.
+
+Use a split layout with a large photograph on one side and text on the other.
+
+#### Suggested heading
+
+“A Land of Endless Discoveries.”
+
+Describe the country's varied landscapes, historic medinas, mountain villages, desert adventures, coastal scenery, architecture, and cultural experiences.
+
+Use natural, human-sounding copy that makes the reader curious.
+
+Include a button linking to the homepage tour section.
+
+Use generous whitespace, elegant typography, and subtle scroll-triggered animation.
+
+---
+
+### 9. Homepage section 3 — Popular tours
+
+This should be one of the homepage's most important and visually attractive sections.
+
+Create premium, image-led tour cards with:
+
+- High-quality cover photograph.
+- Tour title.
+- Duration.
+- Route or destination highlights.
+- Short description.
+- “Discover This Tour” button.
+
+Use editable sample entries such as:
+
+- Marrakech to Merzouga Desert Adventure.
+- Imperial Cities of Morocco.
+- Coastal Morocco Journey.
+- The Grand Morocco Road Trip.
+- Atlas Mountains Escape.
+
+These are demonstration examples, not claims about actual tour availability or business offerings.
+
+All titles, photographs, descriptions, routes, durations, itineraries, and prices where applicable must be editable in WordPress.
+
+Each card must link to the relevant tour using the single reusable tour template.
+
+#### Design
+
+- Strong photographic compositions.
+- Elegant image crops.
+- Varied image sizes where appropriate.
+- Deep-green typography.
+- Small yellow or gold accents.
+- Smooth image zoom on hover.
+- Animated arrow icons.
+- Refined transitions.
+- Clear calls to action.
+
+Avoid repetitive, generic-looking boxes.
+
+Do not invent real prices, ratings, availability, or booking guarantees.
+
+---
+
+### 10. Homepage section 4 — Moroccan destinations
+
+Create an immersive destination showcase directly on the homepage.
+
+Feature destinations such as:
+
+- Marrakech.
+- Casablanca.
+- Rabat.
+- Fes.
+- Chefchaouen.
+- Merzouga and the Sahara Desert.
+- Atlas Mountains.
+- Aït Benhaddou.
+- Essaouira.
+- Tangier.
+
+Use beautiful photographs, short descriptions, elegant typography, and subtle interactive effects.
+
+Create an editorial grid with varying image sizes rather than a repetitive set of identical cards.
+
+Use natural transitions between destinations and a consistent photographic style.
+
+These destinations are homepage content only. Do not create separate destination-page templates.
+
+---
+
+### 11. Homepage section 5 — Signature experiences
+
+Showcase experiences that make Morocco memorable.
+
+Potential categories include:
+
+- Sahara desert adventures.
+- Camel trekking.
+- Desert camping.
+- Mountain excursions.
+- Cultural and historical discoveries.
+- Moroccan cuisine.
+- Traditional craftsmanship.
+- Scenic road trips.
+- Coastal escapes.
+
+Use an immersive visual layout with large photographs, short descriptions, and clear calls to action.
+
+Vary the layout from the destination section to create a sense of discovery as the visitor scrolls.
+
+Use subtle image transitions and restrained yellow-and-green accents.
+
+---
+
+### 12. Homepage section 6 — Why choose Mystic Morocco Roads?
+
+Create a polished trust-building section that communicates the agency's actual strengths.
+
+Possible configurable highlights include:
+
+- Personalized itineraries.
+- Local destination knowledge.
+- Private journeys.
+- Cultural experiences.
+- Flexible trip planning.
+- Responsive travel assistance.
+
+Use tasteful icons, concise text, and supporting photography.
+
+Do not invent awards, certifications, years of experience, customer counts, or service guarantees.
+
+Keep the design elegant and authentic rather than overly promotional.
+
+---
+
+### 13. Homepage section 7 — Follow the road
+
+Create a visual storytelling section that illustrates a journey through Morocco.
+
+Example route:
+
+Marrakech → Atlas Mountains → Aït Benhaddou → Ouarzazate → Merzouga → Fes.
+
+Display selected stops with photographs, brief descriptions, and route connections.
+
+Use a thin golden line to connect stops and restrained green accents to reinforce the brand.
+
+On desktop, use a horizontal storytelling layout where appropriate.
+
+On mobile, transform the layout into a vertical timeline.
+
+An actual interactive map is optional. If implemented, ensure it works correctly. Otherwise, use a beautifully designed route illustration or timeline with functional links.
+
+Do not invent precise travel times or distances.
+
+---
+
+### 14. Homepage section 8 — Genuine Tripadvisor reviews
+
+This section is mandatory.
+
+Customer testimonials must come from **the actual Tripadvisor listing for Mystic Morocco Roads**.
+
+Do not substitute Google reviews, fabricated testimonials, generic sample reviews, or AI-generated customer feedback.
+
+#### Section heading
+
+“Our Travelers’ Stories”
+
+#### Supporting text
+
+“Real experiences. Unforgettable journeys. Shared by our travelers on Tripadvisor.”
+
+#### Review cards
+
+Where supported by an approved integration, display:
+
+- Reviewer name or publicly displayed identity.
+- Authentic review text.
+- Tripadvisor rating.
+- Review date.
+- Appropriate Tripadvisor attribution.
+
+Create elegant review cards with readable typography, comfortable spacing, and a visual style consistent with the yellow-and-green brand.
+
+#### Responsive layout
+
+On desktop, use a polished grid or carousel.
+
+On mobile, use a swipeable carousel with accessible controls.
+
+Add subtle transitions without making the review content difficult to read.
+
+#### Integration requirements
+
+Prioritize:
+
+1. An official Tripadvisor widget or approved review-display integration.
+2. An authorized API or supported integration where available.
+3. A configurable link to the real Tripadvisor listing if live review display is unavailable.
+
+Do not scrape reviews or reproduce Tripadvisor content in ways that violate its terms or applicable content-use requirements.
+
+Do not expose API credentials in frontend code.
+
+**Tripadvisor listing URL:** Configure the actual business listing URL when provided.
+
+If the listing URL or necessary integration credentials are missing, prepare the section and make the integration configurable in WordPress. Do not invent public-facing review content.
+
+Include a prominent button:
+
+“Read More Reviews on Tripadvisor”
+
+It must open the correct, configured business listing.
+
+Never claim that reviews are live, verified, or connected until the integration has been configured and tested.
+
+---
+
+### 15. Homepage section 9 — Your own Moroccan story
+
+Create a cinematic closing section that brings the visitor back to the central idea of the logo: a journey across Morocco.
+
+Use a stunning photograph of the Sahara, a winding desert road, or a traveler approaching the horizon.
+
+#### Heading
+
+“Every Journey Has a Story. Let Yours Begin in Morocco.”
+
+#### Supporting text
+
+“Tell us what inspires you, and start planning a journey through the Morocco you've always wanted to discover.”
+
+Include a prominent yellow or gold “Plan Your Trip” button against a deep-green or carefully darkened photographic background.
+
+The button must link to the agency's configured inquiry method, contact destination, or existing booking integration.
+
+Do not create a separate contact-page template or a complete reservation system.
+
+---
+
+### 16. Reusable global footer
+
+Create a premium footer that appears consistently across the homepage, tour pages, and policy pages.
+
+Include:
+
+- Mystic Morocco Roads logo.
+- Short brand introduction.
+- Quick links to homepage sections.
+- Tours link.
+- Configurable email address.
+- Configurable telephone number.
+- Configurable WhatsApp link.
+- Configurable social media links.
+- Privacy Policy.
+- Terms and Conditions.
+- Cancellation Policy.
+- Copyright notice.
+
+#### Visual design
+
+Use a deep Moroccan green background, warm ivory typography, and restrained yellow or gold accents.
+
+Use refined spacing, elegant hover transitions, and clear visual hierarchy.
+
+On desktop, use well-balanced columns.
+
+On mobile, use compact stacked sections or accessible accordions where appropriate.
+
+Make all contact details configurable through WordPress.
+
+Never invent business addresses, telephone numbers, email addresses, social profiles, or registration details.
+
+---
+
+### 17. Reusable individual tour template
+
+Create exactly one reusable template for all individual tour pages.
+
+The template must display different tour content without requiring a separate layout for each tour.
+
+Include:
+
+- Large tour hero photograph.
+- Tour title.
+- Introductory description.
+- Duration.
+- Starting point and ending point.
+- Route information.
+- Tour highlights.
+- Day-by-day itinerary.
+- Included services.
+- Excluded services.
+- Photo gallery.
+- Practical information.
+- Frequently asked questions where appropriate.
+- Inquiry or booking CTA.
+- Related tours when supported by existing tour data.
+
+#### WordPress editing
+
+Allow the administrator

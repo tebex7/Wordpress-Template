@@ -1,10 +1,10 @@
 /*
-Theme Name: Voyago
+Theme Name: Mystic Morocco Roads
 Theme URI: https://github.com/anomalyco/voyago
 Author: OpenCode
 Author URI: https://github.com/anomalyco
-Description: A free, original lookalike of Tripgo for WordPress. Built as a classic/standalone theme with Elementor-free-friendly customizer controls.
-Version: 1.0.0
+Description: An editorial Morocco travel theme with reusable tour and policy templates.
+Version: 2.0.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: voyago
@@ -12,16 +12,18 @@ Tags: travel, tour, tourism, agency, blog, one-column, two-columns, right-sideba
 */
 
 :root {
-    --voyago-primary: #fd4c5c;
-    --voyago-teal: #00bb98;
-    --voyago-blue: #2b59ff;
-    --voyago-dark: #020101;
-    --voyago-title: #1a1a3d;
-    --voyago-text: #333333;
-    --voyago-muted: #595a5a;
-    --voyago-bg-light: #f2fbfa;
-    --voyago-bg-gray: #f8f8f8;
-    --voyago-border: #e6e6e6;
+    --mrr-green: #174a35;
+    --mrr-green-deep: #103427;
+    --mrr-sage: #789477;
+    --mrr-gold: #e4b82f;
+    --mrr-sand: #e8d4b0;
+    --mrr-ivory: #fbf8f0;
+    --mrr-earth: #76543b;
+    --mrr-charcoal: #252923;
+    --mrr-white: #fffdf8;
+    --mrr-line: rgba(23, 74, 53, .14);
+    --mrr-serif: 'Playfair Display', Georgia, serif;
+    --mrr-sans: 'DM Sans', sans-serif;
 }
 
 html {
@@ -31,17 +33,17 @@ html {
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--voyago-text);
-    background: #ffffff;
+    font-family: var(--mrr-sans);
+    color: var(--mrr-charcoal);
+    background: var(--mrr-ivory);
     font-size: 16px;
     line-height: 1.8;
 }
 
 .voyago-container {
-    max-width: 1140px;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 32px;
 }
 
 .skip-link {
